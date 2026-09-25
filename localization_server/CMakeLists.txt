@@ -8,6 +8,20 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(geometry_msgs REQUIRED)
+
+add_executable(initial_pose_exe src/initial_pose_pub.cpp)
+
+# Add dependencies
+ament_target_dependencies(initial_pose_exe
+  rclcpp
+  geometry_msgs
+  )
+
+# Install executables
+install(TARGETS
+  initial_pose_exe
+  DESTINATION lib/${PROJECT_NAME})
 
 # Install launch files
 install(DIRECTORY 
