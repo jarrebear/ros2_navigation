@@ -8,6 +8,24 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(rclcpp_action REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(nav2_msgs REQUIRED)
+
+
+add_executable(nav_action_client_exe src/nav_to_pose_action_client.cpp)
+
+ament_target_dependencies(nav_action_client_exe
+  rclcpp
+  rclcpp_action
+  geometry_msgs
+  nav2_msgs)
+
+
+
+install(TARGETS 
+  nav_action_client_exe
+  DESTINATION lib/${PROJECT_NAME})
 
 # Install launch files
 install(DIRECTORY 
