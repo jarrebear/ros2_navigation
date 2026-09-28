@@ -79,6 +79,7 @@ def generate_launch_description():
             output='screen',
             parameters=[{'use_sim_time': True},
                         {'autostart': True},
+                        {'bond_timeout': 0.0},
                         {'node_names': ['tb3_0/planner_server',
                           'tb3_0/controller_server', 'tb3_0/bt_navigator',
                           'tb3_0/recoveries_server', 'tb3_1/planner_server',
