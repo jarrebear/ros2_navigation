@@ -1,0 +1,12 @@
+<?xml version='1.0' ?>
+
+<launch>
+    <include file="$(find-pkg-share localization_server)/launch/multi_localization.launch.py"/>
+    <include file="$(find-pkg-share path_planner_server)/launch/multi_pathplanner.launch.py"/>
+
+    <include file="$(find-pkg-share cartographer_slam)/launch/start_rviz.launch.py">
+        <arg name="use_sim_time" value="true"/>
+        <arg name="rviz_config_dir" value="$(find-pkg-share cartographer_slam)/config/two_robot.rviz" />
+    </include>
+
+</launch>
